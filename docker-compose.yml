@@ -1,0 +1,23 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      DATABASE_PATH: /data/plant-carer.sqlite3
+    expose:
+      - "8000"
+    volumes:
+      - plant_data:/data
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "${FRONTEND_PORT:-2026}:2026"
+    environment:
+      VITE_API_BASE: ""
+
+volumes:
+  plant_data:
