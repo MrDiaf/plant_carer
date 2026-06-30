@@ -15,7 +15,10 @@ services:
     depends_on:
       - backend
     ports:
-      - "${FRONTEND_PORT:-2026}:2026"
+      - target: 2026
+        published: "${FRONTEND_PORT:-2026}"
+        protocol: tcp
+        host_ip: 0.0.0.0
     environment:
       VITE_API_BASE: ""
 

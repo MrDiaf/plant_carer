@@ -24,7 +24,7 @@ docker compose logs -f
 docker compose down -v
 ```
 
-The app is served at `http://localhost:2026`. The backend is reached through the Vite dev proxy inside Docker Compose.
+The app is served at `http://localhost:2026` and should also be reachable from the local network through `http://YOUR_PC_LOCAL_IP:2026`. The frontend Docker port is explicitly bound to `0.0.0.0`, and Vite allows LAN host headers. The backend is reached through the Vite dev proxy inside Docker Compose.
 
 ## Important Plant Logic Rules
 
@@ -51,4 +51,4 @@ The app is served at `http://localhost:2026`. The backend is reached through the
 
 ## Known TODOs
 
-- No known TODOs at initial scaffold.
+- If LAN access fails from a phone even though Docker shows `0.0.0.0:2026->2026/tcp`, check the host firewall and Wi-Fi client isolation.

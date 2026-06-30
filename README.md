@@ -14,6 +14,18 @@ Open the app on this computer:
 http://localhost:2026
 ```
 
+Open the app from another phone, tablet, or computer on the same Wi-Fi:
+
+```txt
+http://YOUR_PC_LOCAL_IP:2026
+```
+
+On Linux, you can list local addresses with:
+
+```bash
+hostname -I
+```
+
 If something else is already using port `2026`, start it on another host port:
 
 ```bash
@@ -55,6 +67,13 @@ http://192.168.1.42:2026
 ```
 
 Keep Docker Compose running on the computer that hosts the app.
+
+If another device still cannot connect:
+
+- Make sure both devices are on the same Wi-Fi network.
+- Use the Wi-Fi/LAN address, not Docker bridge addresses like `172.x.x.x`.
+- If your firewall is enabled, allow incoming TCP traffic on port `2026`.
+- Some guest Wi-Fi networks block devices from reaching each other.
 
 ## Stack
 
